@@ -3,7 +3,7 @@ sys.setrecursionlimit(10**6)
 
 N, M = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(N+1)]
-visited = [False for _ in range(N+1)]
+visited = [False] * (N+1)
 
 for _ in range(M):
     u, v = map(int, sys.stdin.readline().split())
