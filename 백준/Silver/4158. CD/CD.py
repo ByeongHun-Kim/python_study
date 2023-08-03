@@ -6,14 +6,24 @@ while True:
     if (N == 0) and (M == 0):
         break
 
-    A = {}
-    for i in range(N):
-        A[int(sys.stdin.readline())] = 1
+    A = [int(sys.stdin.readline()) for _ in range(N)]
+    B = [int(sys.stdin.readline()) for _ in range(M)]
 
-    result = 0
+    ans = 0
+    for b in B:
+        start = 0
+        end = N-1
 
-    for i in range(M):
-        target = int(sys.stdin.readline())
-        if target in A:
-            result += 1
-    print(result)
+        while start <= end:
+            mid = (start + end) // 2
+            if A[mid] == b:
+                ans += 1
+                break
+
+            elif A[mid] < b:
+                start = mid + 1
+
+            else:
+                end = mid - 1
+
+    print(ans)
